@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Android Emulator",
+            "type": "shell",
+            "command": "flutter emulators --launch Medium_Phone_API_35",
+            "group": "build",
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "default"
+            }
+        },
+        {
+            "label": "Start iOS Simulator",
+            "type": "shell",
+            "command": "flutter emulators --launch apple_ios_simulator",
+            "group": "build",
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "default"
+            }
+        }
+    ]
+}

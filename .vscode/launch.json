@@ -6,14 +6,26 @@
             "request": "launch",
             "type": "dart",
             "deviceId": "emulator-5554",
-            "flutterMode": "debug"
+            "flutterMode": "debug",
+            "preLaunchTask": "Start Android Emulator"
         },
         {
             "name": "iOS Simulator",
             "request": "launch",
-            "type": "dart", 
+            "type": "dart",
             "deviceId": "05A7A529-550C-47B0-A157-0A2FE80CAA4C",
-            "flutterMode": "debug"
+            "flutterMode": "debug",
+            "preLaunchTask": "Start iOS Simulator"
+        },
+        {
+            "name": "Chrome (WASM)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "chrome",
+            "flutterMode": "debug",
+            "args": [
+                "--web-port=61706"
+            ]
         }
     ]
 }

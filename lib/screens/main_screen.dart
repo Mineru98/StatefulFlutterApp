@@ -54,20 +54,25 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  ListView makeList(AsyncSnapshot<List<WebtoonModel>> snapshot) {
-    return ListView.separated(
+  Widget makeList(AsyncSnapshot<List<WebtoonModel>> snapshot) {
+    return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      itemCount: snapshot.data!.length,
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      itemBuilder: (context, index) {
-        var webtoon = snapshot.data![index];
-        return Webtoon(
-          title: webtoon.title,
-          thumb: webtoon.thumb,
-          id: webtoon.id,
-        );
-      },
-      separatorBuilder: (context, index) => const SizedBox(width: 40),
+      physics: const AlwaysScrollableScrollPhysics(),
+      child: Row(
+        children:
+            snapshot.data!.asMap().entries.map((entry) {
+              var index = entry.key;
+              var webtoon = entry.value;
+              return Padding(
+                padding: EdgeInsets.only(left: index == 0 ? 20 : 40, right: 20),
+                child: Webtoon(
+                  title: webtoon.title,
+                  thumb: webtoon.thumb,
+                  id: webtoon.id,
+                ),
+              );
+            }).toList(),
+      ),
     );
   }
 }
