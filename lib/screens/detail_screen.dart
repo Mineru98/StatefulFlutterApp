@@ -66,14 +66,18 @@ class _DetailScreenState extends State<DetailScreen> {
                       Widget child,
                       ImageChunkEvent? loadingProgress,
                     ) {
-                      // Show a placeholder while the image is loading
+                      if (loadingProgress == null) {
+                        // 로딩이 완료되면 실제 이미지를 반환
+                        return child;
+                      }
+                      // 로딩 중일 때 placeholder 표시
                       return Container(
-                        height: 320, // 적절한 높이 설정
+                        height: 320,
                         color: Colors.grey.shade200,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [CircularProgressIndicator()],
+                            children: const [CircularProgressIndicator()],
                           ),
                         ),
                       );
@@ -81,12 +85,12 @@ class _DetailScreenState extends State<DetailScreen> {
                     errorBuilder: (context, error, stackTrace) {
                       // 이미지 로드 중 에러(403 포함)가 발생하면 플레이스홀더 표시
                       return Container(
-                        height: 320, // 적절한 높이 설정
+                        height: 320,
                         color: Colors.grey.shade200,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.image_not_supported,
                                 size: 40,

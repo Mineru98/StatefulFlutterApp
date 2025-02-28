@@ -6,8 +6,7 @@ import 'package:examapp/models/webtoon_episode.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String baseUrl =
-      'https://webtoon-crawler.nomadcoders.workers.dev';
+  static const String baseUrl = 'http://10.159.30.55:5500';
   static const String today = "today";
 
   static Future<List<WebtoonModel>> getTodaysToons() async {
@@ -39,7 +38,6 @@ class ApiService {
     String id,
   ) async {
     List<WebtoonEpisodeModel> episodesInstances = [];
-    print(id);
     final url = Uri.parse("$baseUrl/$id/episodes");
     final response = await http.get(url);
     if (response.statusCode == 200) {
