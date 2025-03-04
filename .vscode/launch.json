@@ -15,7 +15,7 @@
             "type": "dart",
             "deviceId": "05A7A529-550C-47B0-A157-0A2FE80CAA4C",
             "flutterMode": "debug",
-            "preLaunchTask": "Start iOS Simulator"
+            // "preLaunchTask": "Start iOS Simulator"
         },
         {
             "name": "Chrome (WASM)",
